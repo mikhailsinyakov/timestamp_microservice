@@ -36,13 +36,21 @@ app.route('/')
 app.route('/:query')
     .get((req, res, next) => {
       const query = req.params.query;
-      //const date;
-      console.log(new Date(query));
-      //if (new Date(query))
-      const json = {
-        "unix": null,
-        "natural": null
-      };
+      let date, json;
+      if (+query) date = new Date(+query);
+      else date = new Date(query);
+      if (date == "Invalid Date") {
+        json = {
+          "unix": null,
+          "natural": null
+        };
+      }
+      else {
+        json = {
+          "unix": Date.parse(date),
+          "natural": date.toDateString()
+        };
+      }
       res.set("Content-Type", "application/json");
       res.json(json);
     });
