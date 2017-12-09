@@ -46,8 +46,8 @@ app.route('/:query')
       }
       else {
         json = {
-          "unix": Date.parse(date),
-          "natural": date.format("MMMM D YYYY")
+          "unix": Date.parse(date) / 1000,
+          "natural": date.format("MMMM D, YYYY")
         };
       }
       res.set("Content-Type", "application/json");
