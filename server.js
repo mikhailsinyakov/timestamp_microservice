@@ -1,7 +1,6 @@
 'use strict';
-console.log(require('date-format'));
 const fs = require('fs');
-const format = require('date-format');
+const format = require('date-format-lite');
 const express = require('express');
 const app = express();
 
@@ -48,7 +47,7 @@ app.route('/:query')
       else {
         json = {
           "unix": Date.parse(date),
-          "natural": date.toDateString()
+          "natural": date.format("MMMM D YYYY")
         };
       }
       res.set("Content-Type", "application/json");
