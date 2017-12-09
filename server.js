@@ -1,9 +1,9 @@
 'use strict';
-
+console.log(require('date-format'));
 const fs = require('fs');
+const format = require('date-format');
 const express = require('express');
 const app = express();
-const bodyParser = require("body-parser");
 
 if (!process.env.DISABLE_XORIGIN) {
   app.use((req, res, next) => {
