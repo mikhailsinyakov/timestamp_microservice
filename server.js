@@ -36,13 +36,15 @@ app.route('/')
 app.route('/:query')
     .get((req, res, next) => {
       const query = req.params.query;
+      //const date;
+      console.log(new Date(query));
+      //if (new Date(query))
       const json = {
         "unix": null,
         "natural": null
       };
       res.set("Content-Type", "application/json");
       res.json(json);
-      next();
     });
 
 // Respond not found to all the wrong routes
@@ -58,7 +60,9 @@ app.use((err, req, res, next) => {
       .type('txt')
       .send(err.message || 'SERVER ERROR');
   }  
-})
+});
+
+
 
 app.listen(process.env.PORT, function () {
   console.log('Node.js listening ...');
