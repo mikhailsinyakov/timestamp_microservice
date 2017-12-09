@@ -33,3 +33,7 @@ img {
 	margin: 20px auto 0 auto;
 	display: block;
 }
+
+code {
+  background: lightblue;
+}
